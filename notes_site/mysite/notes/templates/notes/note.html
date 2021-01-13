@@ -1,0 +1,13 @@
+<h1>{{ note_data.title }}</h1>
+<hr>
+<p>{{ note_data.body }}</p>
+<hr>
+<br>
+<br>
+<em>Last Edited: {{note_data.pub_date}}</em>
+
+<br><br><br><br>
+
+<form action="{% url 'notes:view_notes' note_data.topic.slug %}" method="GET">
+    <button type="submit">Back</button>
+</form>

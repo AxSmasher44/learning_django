@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Note, Topic
 
@@ -13,3 +13,9 @@ def view_notes(request, topic_slug):
     topic = Topic.objects.get(slug=topic_slug)
     all_notes_list = Note.objects.filter(topic=topic)
     return render(request, 'notes/view.html', {'all_notes_list': all_notes_list, 'topic': topic.title})
+
+
+def note(request, note_id):
+    note_data = get_object_or_404(Note, pk=note_id)
+    return render(request, 'notes/note.html', {'note_data': note_data})
+

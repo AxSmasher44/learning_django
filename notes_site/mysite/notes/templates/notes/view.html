@@ -2,9 +2,14 @@
 {% if all_notes_list %}
     <ul>
         {% for note in all_notes_list %}
-            <li><a href="">{{ note.title }}</a></li>
+
+            <li><a href="{% url 'notes:note' note.pk %}">{{ note.title }}</a></li>
+    
         {% endfor %}
     </ul>    
 {% endif %}
 <br><br><br><br>
-<a href="{% url 'notes:index' %}">Back</a>
+
+<form action="{% url 'notes:index' %}" method="GET">
+    <button type="submit">Back</button>
+</form>
