@@ -1,0 +1,10 @@
+<h1>Notes in {{ topic }}</h1>
+{% if all_notes_list %}
+    <ul>
+        {% for note in all_notes_list %}
+            <li><a href="">{{ note.title }}</a></li>
+        {% endfor %}
+    </ul>    
+{% endif %}
+<br><br><br><br>
+<a href="{% url 'notes:index' %}">Back</a>

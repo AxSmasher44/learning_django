@@ -1,0 +1,24 @@
+What all does a note taking app need?
+
+
+1) Body
+2) Title
+3) Folder-for example, The user can create a folder in which they can store the notes of a particular subject/topic. This allows for easier organization of notes.
+
+4) Username under which all the notes will be stored in the db
+
+Functionality?
+
+1) Create
+2) Read
+3) Update
+4) Delete
+5) Export as PDF
+6) Basic text editing functionality
+7) Clean + sick UI
+
+
+Things to make:
+1) Proper Database
+2) Views+templates
+3) Functionality

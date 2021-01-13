@@ -1,0 +1,10 @@
+<h1>Topics</h1>
+{% if all_topic_list %}
+    <ul>
+        {% for topic in all_topic_list %}
+            <li><a href="{% url 'notes:view_notes' topic.slug %}">{{ topic.title }}</a></li>
+        {% endfor %}
+    </ul>    
+{% endif %}
+<br>
+<br><br><br>
