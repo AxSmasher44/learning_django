@@ -1,4 +1,4 @@
-<h1>Notes in {{ topic }}</h1>
+<h1>Notes in {{ topic.title }}</h1>
 {% if all_notes_list %}
     <ul>
         {% for note in all_notes_list %}
@@ -10,6 +10,28 @@
 {% endif %}
 <br><br><br><br>
 
+<form action="{% url 'notes:edit' 0 %}" method="GET">
+    {% csrf_token %}
+    <input type="hidden" id="note_topic_id" name="note_topic_id" value="{{topic.id}}">
+    <button type="submit" >Create new note</button>
+    
+</form>
+
+<form action="{% url 'notes:delete' 'note'%}" method="POST">
+    {% csrf_token %}
+    <select name="note_to_be_deleted" id="" required>
+        <option value="none" selected disabled hidden> 
+            Select an Option 
+        </option> 
+        {% for note in all_notes_list %}
+            <option value="{{note.id}}">{{ note.title }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" >Delete Note</button>
+</form>
+
 <form action="{% url 'notes:index' %}" method="GET">
+    {% csrf_token %}
+
     <button type="submit">Back</button>
 </form>

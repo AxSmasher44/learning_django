@@ -14,6 +14,7 @@ class Topic(models.Model):
         self.slug = self.slug or slugify(self.title)
         super().save(*args, **kwargs)
 
+
 class Note(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     title = models.CharField(max_length=40)

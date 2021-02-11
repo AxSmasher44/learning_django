@@ -1,0 +1,31 @@
+{% if required_note%}
+<form action="{% url 'notes:edit' required_note.id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="note_topic_id" name="note_topic_id" value="{{topic_id}}">
+    <div><input type="text" name="title" id="title" placeholder="Title" size="53" value = {{required_note.title}} required></div>
+    <div>
+        <textarea name="body" id="body" cols="50" rows="30" placeholder="Content" style="resize: none;"
+        required wrap="hard">{{required_note.body}}</textarea>
+    </div>
+    
+    <button type="submit">Save</button>
+</form>
+{% else %}
+<form action="{% url 'notes:edit' 0 %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="note_topic_id" name="note_topic_id" value="{{topic_id}}">
+    <div><input type="text" name="title" id="title" placeholder="Title" size="53" required></div>
+    <div>
+        <textarea name="body" id="body" cols="50" rows="30" placeholder="Content" style="resize: none;"
+        required wrap="hard"></textarea>
+    </div>
+    
+    <button type="submit">Save</button>
+</form>
+{% endif %}
+
+<form action="{% url 'notes:view_all_notes' topic_slug %}" method="GET">
+    {% csrf_token %}
+
+    <button type="submit">Back</button>
+</form>

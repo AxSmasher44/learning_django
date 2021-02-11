@@ -8,6 +8,10 @@
 
 <br><br><br><br>
 
-<form action="{% url 'notes:view_notes' note_data.topic.slug %}" method="GET">
+<form action="{% url 'notes:edit' note_data.pk %}" method="GET">
+    <input type="hidden" id="note_topic_id" name="note_topic_id" value="{{note_data.topic.id}}">
+    <button type="submit">Edit</button>
+</form>
+<form action="{% url 'notes:view_all_notes' note_data.topic.slug %}" method="GET">
     <button type="submit">Back</button>
 </form>
